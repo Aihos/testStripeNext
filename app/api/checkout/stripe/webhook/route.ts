@@ -2,11 +2,11 @@ import Stripe from 'stripe';
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export const config = {
+/* export const config = {
   api: {
     bodyParser: false,
   },
-};
+}; */
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!);
 
