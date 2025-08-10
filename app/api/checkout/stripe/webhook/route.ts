@@ -2,14 +2,15 @@ import Stripe from 'stripe';
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-/* export const config = {
-  api: {
-    bodyParser: false,
-  },
-}; */
+// Supprimez cette configuration qui est pour Pages Router
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!);
-
+// Utilisez la variable d'environnement côté serveur (sans NEXT_PUBLIC_)
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(req: Request) {
   const sig = req.headers.get('stripe-signature')!;
