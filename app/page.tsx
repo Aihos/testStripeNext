@@ -5,6 +5,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 
 export default function HomePage() {
   const handlePay = async () => {
+    console.log("c'est cliqué")
     const res = await fetch('/api/checkout', {
       method: 'POST',
       body: JSON.stringify({ amount: 2000 }),
